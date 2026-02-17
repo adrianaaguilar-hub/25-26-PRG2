@@ -39,6 +39,13 @@ public class BuscaMinas {
                 seguirJugando = explosiones < MAX_EXPLOSIONES && !todasLibres;
             } while (seguirJugando);
         
+        imprimir(mapa);
+        
+        if (explosiones >= MAX_EXPLOSIONES) {
+            System.out.println("¡Has perdido! Explotaron 3 minas");
+        } else {
+            System.out.println("¡Felicidades, has ganado!");
+        }
         
         scanner.close();
     }
