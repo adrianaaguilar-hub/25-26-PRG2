@@ -49,7 +49,7 @@ public class BuscaMinas {
 
         do {
             int x = (int)(Math.random()*mapa.length);
-            int y = (int)(Math.random()*mapa.length);
+            int y = (int)(Math.random()*mapa[0].length);
 
             if (mapa[x][y] != -2) {
                  mapa[x][y] = -2;
