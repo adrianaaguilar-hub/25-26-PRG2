@@ -21,20 +21,22 @@ public class BuscaMinas {
     
         colocarMinas(MINAS_TOTALES, mapa);
 
-        final int TURNOS_TOTALES = 5;
+        final int MAX_EXPLOSIONES = 3;
+        int explosiones = 0;
         boolean seguirJugando = true;
         
        
    
-        int turno = 0;
         
   
             do {
                 imprimir(mapa);
-                revelarCasilla(scanner, mapa);
-                boolean todasLibres = minasEncontradas(mapa, MINAS_TOTALES);
-                turno ++;
-                seguirJugando = turno < TURNOS_TOTALES && !todasLibres;
+                boolean esMina = revelarCasilla(scanner, mapa);
+                if (esMina) {
+                    explosiones++;
+                }
+                boolean todasLibres = todasCasillasLibres(mapa, MINAS_TOTALES);
+                seguirJugando = explosiones < MAX_EXPLOSIONES && !todasLibres;
             } while (seguirJugando);
         
         
@@ -100,7 +102,7 @@ public class BuscaMinas {
     
     
 
-    static void revelarCasilla(Scanner scanner, int[][] mapa) {
+    static boolean revelarCasilla(Scanner scanner, int[][] mapa) {
         int[] coordenada = pedirCoordenadas(scanner, mapa);
 
         int x = coordenada[1];
@@ -111,20 +113,31 @@ public class BuscaMinas {
         } else {
             mapa[y][x] = mapa[y][x];
         }
+        
+        System.out.println("----------------");
+        if (mapa[y][x] == 2) {
+            System.out.println("Mina!");
+            return true;
+        } else {
+            System.out.println("Libre!");
+            return false;
+        }
     }
     
     
 
-    static boolean minasEncontradas (int[][] mapa, int cantidad){
-        int minasEncontradas = 0;
+    static boolean todasCasillasLibres (int[][] mapa, int totalMinas){
+        int casillasReveladas = 0;
+        int totalCasillas = mapa.length * mapa[0].length;
+        
         for (int i = 0; i < mapa.length; i++) {
             for (int j = 0; j < mapa[i].length; j++) {
-                if (mapa[i][j] == 2) {
-                    minasEncontradas++;
+                if (mapa[i][j] >= 0) {
+                    casillasReveladas++;
                 }
             }
         }
-        return minasEncontradas == cantidad;
+        return casillasReveladas == (totalCasillas - totalMinas);
     }
     
 }
