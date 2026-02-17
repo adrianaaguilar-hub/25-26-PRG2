@@ -62,12 +62,16 @@ public class BuscaMinas {
     
  
     static void imprimir ( int[][] mapa) {
+        System.out.println("================");
+        System.out.println("  1 2 3 4 5 6 7");
         for (int i = 0; i < mapa.length; i++) {
+            System.out.print((i + 1) + " ");
             for (int j = 0; j < mapa[i].length; j++){
-                System.out.print(mapear(mapa[i][j]));
+                System.out.print(mapear(mapa[i][j]) + " ");
             }
             System.out.println();
         }
+        System.out.println("================");
     }
     
     
@@ -75,9 +79,9 @@ public class BuscaMinas {
     static String mapear( int casilla) {
 
         String[] simbolos = {
-            "?",
-            "~",
-            "|o/"
+            "-",
+            ".",
+            "*"
         };
         
         return casilla < 0 ? simbolos[0] : simbolos[casilla];
