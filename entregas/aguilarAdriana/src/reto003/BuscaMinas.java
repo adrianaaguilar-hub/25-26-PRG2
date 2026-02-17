@@ -17,9 +17,9 @@ public class BuscaMinas {
         
      
         
-        final int SOLDADOS_TOTALES = 1;
+        final int MINAS_TOTALES = 5;
     
-        colocarSoldados(SOLDADOS_TOTALES, mapa);
+        colocarMinas(MINAS_TOTALES, mapa);
 
         final int TURNOS_TOTALES = 5;
         boolean seguirJugando = true;
@@ -31,10 +31,10 @@ public class BuscaMinas {
   
             do {
                 imprimir(mapa);
-                despejarNiebla(scanner, mapa);
-                boolean halladosTodos = soldadosEncontrados(mapa, SOLDADOS_TOTALES);
+                revelarCasilla(scanner, mapa);
+                boolean todasLibres = minasEncontradas(mapa, MINAS_TOTALES);
                 turno ++;
-                seguirJugando = turno < TURNOS_TOTALES && !halladosTodos;
+                seguirJugando = turno < TURNOS_TOTALES && !todasLibres;
             } while (seguirJugando);
         
         
@@ -43,9 +43,9 @@ public class BuscaMinas {
     
     
 
-    static void colocarSoldados(int numero, int[][] mapa) {
+    static void colocarMinas(int numero, int[][] mapa) {
         boolean terminado = false;
-        int soldadosColocados = 0;
+        int minasColocadas = 0;
 
         do {
             int x = (int)(Math.random()*mapa.length);
@@ -53,9 +53,9 @@ public class BuscaMinas {
 
             if (mapa[x][y] != -2) {
                  mapa[x][y] = -2;
-                 soldadosColocados = soldadosColocados + 1;
+                 minasColocadas = minasColocadas + 1;
             }
-            terminado = soldadosColocados >= numero;
+            terminado = minasColocadas >= numero;
         } while (!terminado);
     }
     
@@ -96,11 +96,11 @@ public class BuscaMinas {
     
     
 
-    static void despejarNiebla(Scanner scanner, int[][] mapa) {
-        int[] cordenada = pedirCoordenadas(scanner, mapa);
+    static void revelarCasilla(Scanner scanner, int[][] mapa) {
+        int[] coordenada = pedirCoordenadas(scanner, mapa);
 
-        int x = cordenada[1];
-        int y = cordenada[0];
+        int x = coordenada[1];
+        int y = coordenada[0];
 
         if (mapa[y][x] < 0) {
             mapa[y][x] = mapa[y][x] * -1;
@@ -111,16 +111,16 @@ public class BuscaMinas {
     
     
 
-    static boolean soldadosEncontrados (int[][] mapa, int cantidad){
-        int soldadosEncontrados = 0;
+    static boolean minasEncontradas (int[][] mapa, int cantidad){
+        int minasEncontradas = 0;
         for (int i = 0; i < mapa.length; i++) {
             for (int j = 0; j < mapa[i].length; j++) {
                 if (mapa[i][j] == 2) {
-                    soldadosEncontrados++;
+                    minasEncontradas++;
                 }
             }
         }
-        return soldadosEncontrados == cantidad;
+        return minasEncontradas == cantidad;
     }
     
 }
