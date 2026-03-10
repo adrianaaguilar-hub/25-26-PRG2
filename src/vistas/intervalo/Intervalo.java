@@ -6,7 +6,7 @@ class Intervalo {
     private double inferior;
 
     public Intervalo (double inferior, double superior) {
-        assert inferior <= superior : "Hey! inferior es mayor que superior";
+        assert inferior <= superior;
         this.inferior = inferior;
         this.superior = superior;
     }
