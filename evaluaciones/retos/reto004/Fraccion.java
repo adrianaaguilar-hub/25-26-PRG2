@@ -15,16 +15,20 @@ public class Fraccion {
 
 
     public void sumar(Fraccion fraccion) {
-        
+        numerador = numerador * fraccion.denominador + fraccion.numerador * denominador;
+        denominador = denominador * fraccion.denominador;
     }
     public void restar(Fraccion fraccion){
-        
+        numerador = numerador * fraccion.denominador - fraccion.numerador * denominador;
+        denominador = denominador * fraccion.denominador;
     }
     public void multiplicar(Fraccion fraccion){
-        
+        numerador = numerador * fraccion.numerador;
+        denominador = denominador * fraccion.denominador;
     }
     public void dividir(Fraccion fraccion){
-        
+        numerador = numerador * fraccion.denominador;
+        denominador = denominador * fraccion.numerador;
     }
 
 
