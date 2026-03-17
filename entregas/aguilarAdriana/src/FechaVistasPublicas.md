@@ -39,4 +39,18 @@ public class fecha {
     }
     
 }
+
+```
+public Fecha (int dia, int mes, int año);
+
+public String mostrar()
+public boolean esBisiesto()
+
+public Fecha restar(int dias)
+public int diasEntre(Fecha fecha)
+public boolean eraCristiana()
+
+public void editarFecha(int dia, int mes, int año)
+
+
 ```
