@@ -46,7 +46,18 @@ public class Fraccion {
 
 
 
-    simplificar(){
+    public void simplificar() {
+        int mcd = calcularMCD(numerador, denominador);
+        numerador = numerador / mcd;
+        denominador = denominador / mcd;
+    }
 
+    private int calcularMCD(int a, int b) {
+        while (b != 0) {
+            int temporal = b;
+            b = a % b;
+            a = temporal;
+        }
+        return a;
     }
 }
