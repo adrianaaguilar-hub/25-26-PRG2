@@ -36,7 +36,7 @@ public class Fraccion {
         return numerador * fraccion.denominador < fraccion.numerador * denominador;
     }
     public boolean mayorQue(Fraccion fraccion){
-        
+        return numerador * fraccion.denominador > fraccion.numerador * denominador;
     }
 
 
