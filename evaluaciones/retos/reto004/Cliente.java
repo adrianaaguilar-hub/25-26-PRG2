@@ -7,12 +7,14 @@ public class Cliente {
 
         int opcion = imprimirMenu(scanner);
 
-        System.out.println("\nIngresa dos fracciones para probar metodos.");
+        System.out.println();
+        System.out.println("Ingresa dos fracciones para probar metodos.");
 
         Fraccion primeraFraccion = leerFraccion(scanner, "Primera fraccion");
         Fraccion segundaFraccion = leerFraccion(scanner, "Segunda fraccion");
 
-        System.out.println("\nFracciones ingresadas: " + primeraFraccion + " y " + segundaFraccion);
+        System.out.println();
+        System.out.println("Fracciones ingresadas: " + primeraFraccion + " y " + segundaFraccion);
 
         switch (opcion) {
             case 1:
@@ -86,7 +88,8 @@ public class Cliente {
         int numerador;
         int denominador;
 
-        System.out.println("\n" + etiqueta + ":");
+        System.out.println();
+        System.out.println(etiqueta + ":");
         System.out.print("Numerador: ");
         numerador = scanner.nextInt();
 
