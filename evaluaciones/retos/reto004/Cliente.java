@@ -1,12 +1,30 @@
 public class Cliente {
 
     public static void main(String[] args) {
+        int opcion = 0; // 0 = todas, 1 = comparaciones, 2 = equals, 3 = operaciones, 4 = simplificar/entero
+
         System.out.println("=== Pruebas clase Fraccion ===");
 
-        probarComparaciones();
-        probarEquals();
-        probarOperaciones();
-        probarSimplificarYEntero();
+        switch (opcion) {
+            case 1:
+                probarComparaciones();
+                break;
+            case 2:
+                probarEquals();
+                break;
+            case 3:
+                probarOperaciones();
+                break;
+            case 4:
+                probarSimplificarYEntero();
+                break;
+            default:
+                probarComparaciones();
+                probarEquals();
+                probarOperaciones();
+                probarSimplificarYEntero();
+                break;
+        }
 
         System.out.println("=== Fin de pruebas ===");
     }
