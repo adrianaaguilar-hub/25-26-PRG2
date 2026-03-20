@@ -34,5 +34,10 @@ public class Cliente {
     division.dividir(new Fraccion(4, 5));
 
     System.out.println("dividir (2/3 / 4/5 = 5/6): " + division.equals(new Fraccion(5, 6)));
+
+    Fraccion simplificada = new Fraccion(8, 12);
+    simplificada.simplificar();
+
+    System.out.println("simplificar (8/12 = 2/3): " + simplificada.equals(new Fraccion(2, 3)));
 	}
 }
