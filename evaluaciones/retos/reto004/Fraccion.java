@@ -41,7 +41,7 @@ public class Fraccion {
 
 
     public boolean equals(Fraccion fraccion){
-
+        return numerador * fraccion.denominador == fraccion.numerador * denominador;
     }
 
 
