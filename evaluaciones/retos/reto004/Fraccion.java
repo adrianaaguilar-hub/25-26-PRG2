@@ -33,7 +33,7 @@ public class Fraccion {
 
 
     public boolean menorQue(Fraccion fraccion){
-
+        return (long) numerador * fraccion.denominador < (long) fraccion.numerador * denominador;
     }
     public boolean mayorQue(Fraccion fraccion){
 
