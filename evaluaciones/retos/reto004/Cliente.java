@@ -19,5 +19,10 @@ public class Cliente {
     suma.sumar(new Fraccion(1, 3));
 
     System.out.println("sumar (1/2 + 1/3 = 5/6): " + suma.equals(new Fraccion(5, 6)));
+
+    Fraccion resta = new Fraccion(3, 4);
+    resta.restar(new Fraccion(1, 2));
+
+    System.out.println("restar (3/4 - 1/2 = 1/4): " + resta.equals(new Fraccion(1, 4)));
 	}
 }
