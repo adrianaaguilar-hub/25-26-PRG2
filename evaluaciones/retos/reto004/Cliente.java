@@ -39,5 +39,8 @@ public class Cliente {
     simplificada.simplificar();
 
     System.out.println("simplificar (8/12 = 2/3): " + simplificada.equals(new Fraccion(2, 3)));
+
+    Fraccion entero = new Fraccion(5);
+    System.out.println("constructor entero (5 = 5/1): " + entero.equals(new Fraccion(5, 1)));
 	}
 }
