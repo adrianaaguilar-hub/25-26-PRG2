@@ -7,6 +7,8 @@ public class Cliente {
         probarEquals();
         probarOperaciones();
         probarSimplificarYEntero();
+
+        System.out.println("=== Fin de pruebas ===");
     }
 
     private static void probarComparaciones() {
