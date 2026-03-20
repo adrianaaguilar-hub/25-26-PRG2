@@ -60,4 +60,16 @@ public class Fraccion {
         }
         return a;
     }
+
+    public String toString() {
+        return numerador + "/" + denominador;
+    }
+
+    public int getNumerador() {
+        return numerador;
+    }
+
+    public int getDenominador() {
+        return denominador;
+    }
 }

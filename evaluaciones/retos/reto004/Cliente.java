@@ -1,73 +1,103 @@
+import java.util.Scanner;
+
 public class Cliente {
 
     public static void main(String[] args) {
-        int opcion = 0;
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== Pruebas clase Fraccion ===");
+        int opcion = imprimirMenu(scanner);
+
+        System.out.println("\nIngresa dos fracciones para probar metodos.");
+
+        Fraccion primeraFraccion = leerFraccion(scanner, "Primera fraccion");
+        Fraccion segundaFraccion = leerFraccion(scanner, "Segunda fraccion");
+
+        System.out.println("\nFracciones ingresadas: " + primeraFraccion + " y " + segundaFraccion);
 
         switch (opcion) {
             case 1:
-                probarComparaciones();
+                mostrarComparaciones(primeraFraccion, segundaFraccion);
                 break;
             case 2:
-                probarEquals();
+                mostrarOperaciones(primeraFraccion, segundaFraccion);
                 break;
             case 3:
-                probarOperaciones();
+                mostrarSimplificacion(primeraFraccion);
                 break;
             case 4:
-                probarSimplificarYEntero();
+                mostrarComparaciones(primeraFraccion, segundaFraccion);
+                mostrarOperaciones(primeraFraccion, segundaFraccion);
+                mostrarSimplificacion(primeraFraccion);
                 break;
             default:
-                probarComparaciones();
-                probarEquals();
-                probarOperaciones();
-                probarSimplificarYEntero();
+                System.out.println("Opcion no valida.");
                 break;
         }
 
-        System.out.println("=== Fin de pruebas ===");
+        System.out.println("=== Fin ===");
+        scanner.close();
     }
 
-    private static void probarComparaciones() {
-        Fraccion a = new Fraccion(1, 2);
-        Fraccion b = new Fraccion(3, 4);
-
-        System.out.println("menorQue (1/2 < 3/4): " + a.menorQue(b));
-        System.out.println("mayorQue (1/2 > 3/4): " + a.mayorQue(b));
+    private static int imprimirMenu(Scanner scanner) {
+        System.out.println("=== Cliente de Fracciones ===");
+        System.out.println("1) Comparaciones");
+        System.out.println("2) Operaciones");
+        System.out.println("3) Simplificar");
+        System.out.println("4) Todo");
+        System.out.print("Elige una opcion: ");
+        return scanner.nextInt();
     }
 
-    private static void probarEquals() {
-        Fraccion c = new Fraccion(2, 4);
-        Fraccion d = new Fraccion(1, 2);
-
-        System.out.println("equals (2/4 == 1/2): " + c.equals(d));
+    private static void mostrarComparaciones(Fraccion primeraFraccion, Fraccion segundaFraccion) {
+        System.out.println("menorQue: " + primeraFraccion.menorQue(segundaFraccion));
+        System.out.println("mayorQue: " + primeraFraccion.mayorQue(segundaFraccion));
+        System.out.println("equals: " + primeraFraccion.equals(segundaFraccion));
     }
 
-    private static void probarOperaciones() {
-        Fraccion suma = new Fraccion(1, 2);
-        suma.sumar(new Fraccion(1, 3));
-        System.out.println("sumar (1/2 + 1/3 = 5/6): " + suma.equals(new Fraccion(5, 6)));
+    private static void mostrarOperaciones(Fraccion primeraFraccion, Fraccion segundaFraccion) {
+        Fraccion suma = new Fraccion(primeraFraccion.getNumerador(), primeraFraccion.getDenominador());
+        suma.sumar(segundaFraccion);
+        System.out.println("suma: " + suma);
 
-        Fraccion resta = new Fraccion(3, 4);
-        resta.restar(new Fraccion(1, 2));
-        System.out.println("restar (3/4 - 1/2 = 1/4): " + resta.equals(new Fraccion(1, 4)));
+        Fraccion resta = new Fraccion(primeraFraccion.getNumerador(), primeraFraccion.getDenominador());
+        resta.restar(segundaFraccion);
+        System.out.println("resta: " + resta);
 
-        Fraccion multiplicacion = new Fraccion(2, 3);
-        multiplicacion.multiplicar(new Fraccion(3, 5));
-        System.out.println("multiplicar (2/3 * 3/5 = 2/5): " + multiplicacion.equals(new Fraccion(2, 5)));
+        Fraccion multiplicacion = new Fraccion(primeraFraccion.getNumerador(), primeraFraccion.getDenominador());
+        multiplicacion.multiplicar(segundaFraccion);
+        System.out.println("multiplicacion: " + multiplicacion);
 
-        Fraccion division = new Fraccion(2, 3);
-        division.dividir(new Fraccion(4, 5));
-        System.out.println("dividir (2/3 / 4/5 = 5/6): " + division.equals(new Fraccion(5, 6)));
+        if (segundaFraccion.getNumerador() != 0) {
+            Fraccion division = new Fraccion(primeraFraccion.getNumerador(), primeraFraccion.getDenominador());
+            division.dividir(segundaFraccion);
+            System.out.println("division: " + division);
+        } else {
+            System.out.println("division: no se puede dividir entre 0");
+        }
     }
 
-    private static void probarSimplificarYEntero() {
-        Fraccion simplificada = new Fraccion(8, 12);
+    private static void mostrarSimplificacion(Fraccion primeraFraccion) {
+        Fraccion simplificada = new Fraccion(primeraFraccion.getNumerador(), primeraFraccion.getDenominador());
         simplificada.simplificar();
-        System.out.println("simplificar (8/12 = 2/3): " + simplificada.equals(new Fraccion(2, 3)));
+        System.out.println("primera simplificada: " + simplificada);
+    }
 
-        Fraccion entero = new Fraccion(5);
-        System.out.println("constructor entero (5 = 5/1): " + entero.equals(new Fraccion(5, 1)));
+    private static Fraccion leerFraccion(Scanner scanner, String etiqueta) {
+        int numerador;
+        int denominador;
+
+        System.out.println("\n" + etiqueta + ":");
+        System.out.print("Numerador: ");
+        numerador = scanner.nextInt();
+
+        do {
+            System.out.print("Denominador (distinto de 0): ");
+            denominador = scanner.nextInt();
+            if (denominador == 0) {
+                System.out.println("El denominador no puede ser 0. Intenta otra vez.");
+            }
+        } while (denominador == 0);
+
+        return new Fraccion(numerador, denominador);
     }
 }
