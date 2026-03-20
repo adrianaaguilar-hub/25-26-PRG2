@@ -1,7 +1,7 @@
 public class Cliente {
 
     public static void main(String[] args) {
-        int opcion = 0; // 0 = todas, 1 = comparaciones, 2 = equals, 3 = operaciones, 4 = simplificar/entero
+        int opcion = 0;
 
         System.out.println("=== Pruebas clase Fraccion ===");
 
