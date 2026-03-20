@@ -29,5 +29,10 @@ public class Cliente {
     multiplicacion.multiplicar(new Fraccion(3, 5));
 
     System.out.println("multiplicar (2/3 * 3/5 = 2/5): " + multiplicacion.equals(new Fraccion(2, 5)));
+
+    Fraccion division = new Fraccion(2, 3);
+    division.dividir(new Fraccion(4, 5));
+
+    System.out.println("dividir (2/3 / 4/5 = 5/6): " + division.equals(new Fraccion(5, 6)));
 	}
 }
