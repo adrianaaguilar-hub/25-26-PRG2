@@ -24,5 +24,10 @@ public class Cliente {
     resta.restar(new Fraccion(1, 2));
 
     System.out.println("restar (3/4 - 1/2 = 1/4): " + resta.equals(new Fraccion(1, 4)));
+
+    Fraccion multiplicacion = new Fraccion(2, 3);
+    multiplicacion.multiplicar(new Fraccion(3, 5));
+
+    System.out.println("multiplicar (2/3 * 3/5 = 2/5): " + multiplicacion.equals(new Fraccion(2, 5)));
 	}
 }
