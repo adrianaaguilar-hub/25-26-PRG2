@@ -9,4 +9,9 @@ public class Carrera {
         this.tiempo = tiempo;
     }
 
+    public void jugar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'jugar'");
+    }
+
 }
