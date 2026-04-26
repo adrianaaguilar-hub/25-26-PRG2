@@ -35,4 +35,22 @@ public class Pista {
         System.out.println("----------------------------------------------");
 
     }
+
+    public void imprimirResultado(Caballo[] caballo) {
+        int ganadores = 0;
+        int indiceGanador = -1;
+
+        for (int i = 0; i < caballo.length; i++) {
+            if (caballo[i].distancia() >= longitud) {
+                ganadores++;
+                indiceGanador = i;
+            }
+        }
+
+        if (ganadores == 1) {
+            System.out.println("Gano el caballo " + (indiceGanador + 1));
+        } else if (ganadores > 1) {
+            System.out.println("Empate");
+        }
+    }
 }

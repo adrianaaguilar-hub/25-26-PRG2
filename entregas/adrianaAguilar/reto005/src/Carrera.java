@@ -3,6 +3,12 @@ public class Carrera {
     private Pista pista;
     private Tiempo tiempo;
 
+    public Carrera() {
+        this.caballo = new Caballo[] {new Caballo(), new Caballo()};
+        this.pista = new Pista();
+        this.tiempo = new Tiempo();
+    }
+
     public Carrera(Caballo [] caballo, Pista pista, Tiempo tiempo) {
         this.caballo = caballo;
         this.pista = pista;
@@ -18,6 +24,8 @@ public class Carrera {
         tiempo.avanzar();
         pista.mostrar( caballo, pista, tiempo);
        } while (!pista.hayGanador(caballo));
+
+       pista.imprimirResultado(caballo);
     }
 
 }
