@@ -17,6 +17,8 @@ public class Pista {
     }
 
     public void mostrar(Caballo[] caballo, Pista pista, Tiempo tiempo) {
+        limpiarPantalla();
+
         for (int i = 0; i < caballo.length; i++) {
             int posicion = caballo[i].distancia();
 
@@ -34,6 +36,11 @@ public class Pista {
 
         System.out.println("----------------------------------------------");
 
+    }
+
+    private void limpiarPantalla() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     public void imprimirResultado(Caballo[] caballo) {
