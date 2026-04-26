@@ -1,7 +1,6 @@
 public class Pista {
 
     private int longitud = 40;
-    private Caballo[] caballo;
 
     public Pista() {
 
@@ -16,7 +15,7 @@ public class Pista {
         return false;
     }
 
-    public void mostrar(Caballo[] caballo, Pista pista, Tiempo tiempo) {
+    public void mostrar(Caballo[] caballo, Tiempo tiempo) {
         limpiarPantalla();
 
         for (int i = 0; i < caballo.length; i++) {

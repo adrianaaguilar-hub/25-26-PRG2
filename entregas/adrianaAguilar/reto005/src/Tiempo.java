@@ -1,5 +1,4 @@
 public class Tiempo {
-    private int avanzar;
     private int segundos;
     public Tiempo () {
 

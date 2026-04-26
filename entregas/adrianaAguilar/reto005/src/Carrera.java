@@ -22,7 +22,7 @@ public class Carrera {
             caballo[i].avanzar();
         }
         tiempo.avanzar();
-        pista.mostrar( caballo, pista, tiempo);
+        pista.mostrar(caballo, tiempo);
        } while (!pista.hayGanador(caballo));
 
        pista.imprimirResultado(caballo);
