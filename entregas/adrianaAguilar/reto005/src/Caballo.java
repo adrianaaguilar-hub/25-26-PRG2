@@ -1,5 +1,4 @@
 public class Caballo {
-    private int cantidadCaballos;
     private int distanciaRecorrida;
     private int avance;
 

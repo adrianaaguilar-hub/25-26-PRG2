@@ -1,9 +1,9 @@
 public class Carrera {
-    private Caballo caballo;
+    private Caballo [] caballo;
     private Pista pista;
     private Tiempo tiempo;
 
-    public Carrera(Caballo caballo, Pista pista, Tiempo tiempo) {
+    public Carrera(Caballo [] caballo, Pista pista, Tiempo tiempo) {
         this.caballo = caballo;
         this.pista = pista;
         this.tiempo = tiempo;
@@ -12,9 +12,12 @@ public class Carrera {
 
     public void jugar() {
        do {
-        caballo.avanzar();
+        for (int i = 0; i < caballo.length; i++) {
+            caballo[i].avanzar();
+        }
+        tiempo.avanzar();
         pista.mostrar( caballo, pista, tiempo);
-       } while (!pista.hayGanador());
+       } while (!pista.hayGanador(caballo));
     }
 
 }
