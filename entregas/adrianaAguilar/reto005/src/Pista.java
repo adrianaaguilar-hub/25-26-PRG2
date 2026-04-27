@@ -1,9 +1,9 @@
 public class Pista {
-
+    private Console console;
     private int longitud = 40;
 
     public Pista() {
-
+        this.console = new Console ();
     }
 
     public boolean hayGanador(Caballo[] caballo) {
@@ -16,7 +16,7 @@ public class Pista {
     }
 
     public void mostrar(Caballo[] caballo, Tiempo tiempo) {
-        limpiarPantalla();
+        
 
         for (int i = 0; i < caballo.length; i++) {
             int posicion = caballo[i].distancia();
@@ -37,10 +37,6 @@ public class Pista {
 
     }
 
-    private void limpiarPantalla() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
     public void imprimirResultado(Caballo[] caballo) {
         int ganadores = 0;
