@@ -6,7 +6,7 @@ public class Mano {
 
     public void añadir (Carta carta) {}
 
-    public int contar () {}
+    public int sumaTotal () {}
 
     public boolean tiene21 () {}
 

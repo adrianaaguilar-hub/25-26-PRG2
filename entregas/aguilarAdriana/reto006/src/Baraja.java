@@ -49,11 +49,11 @@ public class Baraja {
         return cartas[ultima-1];
     }
 
-    public void moverA(Jugador jugador) {
+    public void darA(Jugador jugador) {
         if (this.vacia()) {
             console.writeln("No hay cartas!!!");
         } else {
-            int contador = 1;
+            int contador = 2;
             while (contador > 0 && !this.vacia()) {
                 Carta carta = this.sacar();
                 carta.voltear();
