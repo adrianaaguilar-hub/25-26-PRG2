@@ -72,4 +72,9 @@ public class Baraja {
     public boolean vacia() {
         return ultima == 0;
     }
+
+    public void sacarCartasIniciales() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'sacarCartasIniciales'");
+    }
 }

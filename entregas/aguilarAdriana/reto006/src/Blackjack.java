@@ -4,34 +4,37 @@ public class Blackjack {
     private Console console;
     private boolean jugando;
 
-    public Blackjack () {}
+    public Blackjack() {
+    }
 
-    public void jugar () {
-        
-        do {
-            
-            this.repartirCartasIniciales();
-            
-            switch (jugando) {
-                case 1 -> jugador.pedirCartas ();
-                case 2 -> jugador.mostrarResultadoFinal();
-                    break;
-            
-                default:
-                    break;
-            }
+    public void jugar() {
 
-        } while (jugando);
+        this.prepararPartida();
+        this.repartirCartasIniciales();
+
+        this.jugador.mostrarMano();
+
+        if (this.jugador.consultarPuntaje() == 21) {
+            this.console.writeln("¡Blackjack!");
+        } else {
+            this.gestionarTurno();
+        }
+
+        this.mostrarResultadoFinal();
 
     }
 
-    private void prepararPartida () {}
+    private void prepararPartida(Baraja baraja) {
 
-    private void repartirCartasIniciales (
-        
-    ) {}
+    }
 
-    private void gestionarTurno () {}
+    private void repartirCartasIniciales(Baraja baraja) {
+        baraja.sacarCartasIniciales();
+    }
 
-    private void mostrarResultadoFinal () {}
+    private void gestionarTurno() {
+    }
+
+    private void mostrarResultadoFinal() {
+    }
 }
