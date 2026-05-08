@@ -5,7 +5,9 @@ public class Jugador {
         this.mano = new Mano();
     }
 
-    public int consultarPuntaje () {}
+    public int consultarPuntaje () {
+        
+    }
 
     public boolean seHaPasado () {}
 
