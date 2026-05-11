@@ -74,7 +74,6 @@ public class Baraja {
     }
 
     public void sacarCartasIniciales() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sacarCartasIniciales'");
+        this.mezclar();
     }
 }

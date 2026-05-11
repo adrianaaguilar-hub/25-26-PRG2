@@ -20,7 +20,8 @@ public class Jugador {
     public void agarrar(Carta carta) {
         mano.añadir(carta);
     }
-}
+
     public void mostrarMano() {
         mano.mostrar();
     }
+}

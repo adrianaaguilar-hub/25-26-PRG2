@@ -47,6 +47,10 @@ public class Carta {
         return !this.negro();
     }
 
+    private boolean negro() {
+        return this.palo == 0 || this.palo == 1;
+    }
+
     public boolean esAs() {
         return this.numero == 0;
     }

@@ -10,6 +10,11 @@ public class Blackjack {
         this.jugando = false;
     }
 
+    public static void main(String[] args) {
+        Blackjack juego = new Blackjack();
+        juego.jugar();
+    }
+
     public void jugar() {
         this.prepararPartida();
         this.repartirCartasIniciales();
@@ -27,43 +32,43 @@ public class Blackjack {
     }
 
     private void repartirCartasIniciales() {
-        this.baraja.darA(this.jugador);
+        baraja.darA(jugador);
     }
 
     private void gestionarTurno() {
         while (jugando) {
-            int decisionJugador = this.console.readInt("Pedir carta (1) o parar (2): ");
+            int decisionJugador = console.readInt("Pedir carta (1) o parar (2): ");
 
             switch (decisionJugador) {
                 case 1 -> {
-                    this.jugador.agarrar(this.baraja.sacar());
-                    this.jugador.mostrarMano();
-                    if (this.jugador.seHaPasado() || this.jugador.tiene21()) {
-                        this.jugando = false;
+                    jugador.agarrar(baraja.sacar());
+                    jugador.mostrarMano();
+                    if (jugador.seHaPasado() || jugador.tiene21()) {
+                        jugando = false;
                     }
                 }
-                case 2 -> this.jugando = false;
-                default -> this.console.writeln("Opcion no valida");
+                case 2 -> jugando = false;
+                default -> console.writeln("Opcion no valida");
             }
         }
     }
 
     private void mostrarEstadoInicial() {
-        this.console.writeln("Mano inicial:");
-        this.jugador.mostrarMano();
+        console.writeln("Mano inicial:");
+        jugador.mostrarMano();
 
-        if (this.jugador.consultarPuntaje() == 21) {
-            this.console.writeln("¡Blackjack!");
+        if (jugador.consultarPuntaje() == 21) {
+            console.writeln("¡Blackjack!");
         }
     }
 
     private void mostrarResultadoFinal() {
-        this.console.writeln("Puntaje final: " + this.jugador.consultarPuntaje());
+        console.writeln("Puntaje final: " + jugador.consultarPuntaje());
 
-        if (this.jugador.seHaPasado()) {
-            this.console.writeln("Te has pasado.");
-        } else if (this.jugador.tiene21()) {
-            this.console.writeln("¡Has conseguido 21!");
+        if (jugador.seHaPasado()) {
+            console.writeln("Te has pasado.");
+        } else if (jugador.tiene21()) {
+            console.writeln("¡Has conseguido 21!");
         }
     }
 }
